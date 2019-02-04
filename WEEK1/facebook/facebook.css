@@ -1,0 +1,172 @@
+*{
+    padding:0px;
+    margin:0px;
+}
+body{
+
+}
+header{
+  background:#405D99;  
+  height: 82px;
+  border-bottom: 1px solid #133783;
+}
+.headerblock{   
+    margin: 0 auto;
+    width: 1000px;
+    padding-top: 20px;  
+}
+.logo{
+    width: 50%;
+    float:left;
+}
+.sign-in{
+    width: 50%;
+    float:left;
+}
+.logo img{
+    padding-bottom: 20px;
+}
+.headerblock label{
+    color: #fff;
+
+}
+.password{
+    float: left;
+    margin-left: 10px;
+}
+.password label{
+    padding-bottom: 10px;
+}
+.password input[type="password"]{
+    height: 20px;
+    width: 150px;
+    border:1px solid #1d2a5b;
+}
+.password a {
+    color: #0fb1d8;
+    text-decoration: none;
+}
+.email{
+    float: left;
+}
+.email label{
+    padding-bottom: 10px;
+}
+.email input[type="text"]{
+    height: 20px;
+    width: 150px;
+    border:1px solid #1d2a5b;
+}
+.loginbtn{
+    float: left;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.loginbtn input[type="submit"]{
+    background: #4267b2;
+    border: 1px solid #29487d;
+    border-radius: 2px;
+    color: #fff;
+    height: 20px;
+    width: 50px;
+}
+.clearfix{
+    clear:both;
+}
+.contentblock{
+    margin: 0 auto;
+    width: 1000px;
+}
+.connectpic p{
+    color: #0e385f;
+    font-size: 25px; 
+    font-weight: bold;
+}
+.connectpic{
+    margin-top: 50px;
+}
+.connectpic{
+    margin-left:20px;
+    width:40%;
+    float:left;
+}
+.createaccount{
+    margin-right:20px;
+    margin-top:50px;
+    float:right;
+}
+.createaccount{
+    width:40%;
+}
+.connectpic img{
+    margin-top: 10px;
+}
+.createaccount h2{
+    font-size: 40px;
+}
+.createaccount .free {
+    font-size: 20   px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.contentblock{
+    background: linear-gradient(#fff, #d0ddeb);
+    overflow: hidden;
+}
+.account input[type="text"]{
+    margin-bottom: 15px;
+    border-radius: 5px;
+    padding:10px;
+    font-size:16px;
+}
+.account input[type="password"]{
+    margin-bottom: 15px;
+    font-size: 16px;
+    margin-left:0px;
+    border-radius: 5px;
+    padding:10px;
+}
+.account .mobile{
+    width:76%;
+}
+.account .pw{
+    width:76%;
+}
+.account .ffname{
+    width:34%;
+}
+.account .ssname{
+    width:35%;
+}
+.account label{
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+.account a{
+    text-decoration: none;
+    color: #3677bc;
+}
+.account .a2genders{
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+.createaccount p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.createaccount span {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.createaccount input[type="submit"]{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 15px 22px;
+    background: #65a953;
+    border: 1px solid #3b6e22;
+    border-radius: 5px;
+    font-size: 25px;
+    color: #fff;
+}
