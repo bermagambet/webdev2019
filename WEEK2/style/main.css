@@ -1,0 +1,72 @@
+*{
+    padding:0px;
+    margin:0px;
+}
+.header{
+    background-color: black;
+    height:3em;
+    border: 2px solid darkgrey;
+}
+.header h2{
+    color:white;
+    padding: 10px;
+    padding-left: 30px;
+}
+.content{
+    background: white;
+    margin-left: 38%;
+    margin-top: 50px;
+}
+.content input[type="button"]{
+    background-color: blue;
+    width: 50px;
+    height: 30px;
+    margin: 5px;
+    color: white;
+    border: 2px solid blue;
+    border-radius: 3px; 
+    margin-left: 20px;
+}
+.content input[type="text"]{
+    width: 30%;
+    margin-top: 30px;
+    border-radius: 4px;
+    padding: 7px;
+    height: 30px;
+}
+.content h1{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: oblique;
+}
+.close{
+    float:right;
+    padding:1px 5px 1px 0px;
+    margin-left: 100px;
+    width:2%;
+}
+.close:hover{
+    background-color: black;
+    color: white;
+    height: 18px;
+}
+.list li.checked {
+    background: #888;
+    color: #fff;
+  }
+
+  .list li.checked:hover {
+    background-color: blue;
+  }
+  .checkb{
+      position: absolute;   
+      left: 530px;
+      margin-top:4px;
+      background-color: black;
+
+  }
+  .lineth{
+            text-decoration: line-through;
+  }
+  .linen{
+            text-decoration: none;
+  }
