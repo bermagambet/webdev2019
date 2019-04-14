@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, Input} from '@angular/core';
+import { ProviderService } from '../shared/services/provider.service';
+import { IList } from '../shared/models/models';
 
 @Component({
   selector: 'app-parent',
@@ -7,12 +9,26 @@ import { Component, OnInit, Output, Input} from '@angular/core';
 })
 export class ParentComponent implements OnInit {
 
-  public output = "";
+  public output = '';
+  public stringArray: string[] = [];
 
+  public lists: IList[] = [];
+  public loading = false;
 
-  constructor() { }
+  constructor(private provider: ProviderService) { }
 
   ngOnInit() {
+    this.provider.getLists().then(res => {
+      this.lists = res;
+      /* setTimeout(()=>{
+        this.loading = true;
+      }, 100);
+    }) */
+    this.loading = true;
+    });
   }
 
+  sendMessageViaService(){
+    this.provider.sendMessage.emit('smth');
+  }
 }

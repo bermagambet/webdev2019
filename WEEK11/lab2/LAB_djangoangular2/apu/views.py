@@ -7,10 +7,10 @@ from apu.models import Task
 def tasks(request):
     tasklists = TaskList.objects.all()
     json_tasklists = [c.json() for c in tasklists]
-    data = {
-        'tasklists': json_tasklists
-    }
-    return JsonResponse(data, safe=False)
+    #data = {
+        #'tasklists': json_tasklists
+    #}
+    return JsonResponse(json_tasklists, safe=False)
 
 
 def task(request, xd):

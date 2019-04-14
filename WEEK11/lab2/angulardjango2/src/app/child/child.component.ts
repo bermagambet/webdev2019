@@ -1,5 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
-import { EventEmitter } from 'protractor';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';   
 
 @Component({
   selector: 'app-child',
@@ -10,7 +9,12 @@ export class ChildComponent implements OnInit {
 
 
   @Input() title = '';
-  @Output() output = new EventEmitter();
+  @Input() numberArray: number[] = [];
+
+  @Output() output = new EventEmitter ();
+  @Output() stringArray = new EventEmitter<string[]>();
+
+
 
   constructor() { }
 
@@ -21,4 +25,8 @@ export class ChildComponent implements OnInit {
     this.output.emit('Message from child');
   }
 
+  sendStringArray(){
+    this.stringArray.emit(['a','b','c']);
+
+  }
 }
