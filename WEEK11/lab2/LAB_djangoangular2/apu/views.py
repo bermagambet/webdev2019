@@ -4,23 +4,20 @@ from apu.models import TaskList
 from apu.models import Task
 
 
-def tasks(request):
-    tasklists = TaskList.objects.all()
-    json_tasklists = [c.json() for c in tasklists]
-    #data = {
-        #'tasklists': json_tasklists
-    #}
-    return JsonResponse(tasklists, safe=False)
+def TaskLists(request):
+    taskLists = TaskList.objects.all()
+    taskListsJson = [c.json() for c in taskLists]
+    return JsonResponse(taskListsJson, safe=False)
 
 
-def task(request, xd):
-    taskss = TaskList.objects.get(id=xd)
-    tasksss = taskss.task_set.all()
-    json_tasks = [c.json() for c in tasksss]
-    return JsonResponse(json_tasks, safe=False)
+def Tasks(request, xd):
+    taskLists = TaskList.objects.get(id=xd)
+    taskListTasks = taskLists.task_set.all()
+    taskListTasksJson = [c.json() for c in taskListTasks]
+    return JsonResponse(taskListTasksJson, safe=False)
 
 
-def tasklistinfo(request, xd):
-    taskss = TaskList.objects.get(id=xd)
-    json_tasks = taskss.json()
-    return JsonResponse(json_tasks, safe=False)
+def TaskListInfo(request, xd):
+    taskLists = TaskList.objects.get(id=xd)
+    taskListJson = taskLists.json()
+    return JsonResponse(taskListJson, safe=False)
