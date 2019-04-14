@@ -10,7 +10,7 @@ def tasks(request):
     #data = {
         #'tasklists': json_tasklists
     #}
-    return JsonResponse(json_tasklists, safe=False)
+    return JsonResponse(tasklists, safe=False)
 
 
 def task(request, xd):

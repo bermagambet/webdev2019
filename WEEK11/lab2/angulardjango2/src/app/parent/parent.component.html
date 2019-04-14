@@ -23,12 +23,24 @@ SEND VIA SERVICE
 <DIV (click)="sendMessageViaService()">sendSmth</DIV> -->
 
 LISTS 
+<br/>
 <ng-container *ngIf="!loading">
 SCREW YOU, LEATHER MAN! REACT CLUB TWO BLOCK BELOW!
 </ng-container>
 <br/>
 <ng-container *ngIf="loading">
     <div>
-        <div *ngFor="let l of lists">{{l.id}}-{{l.name}}</div>
+        <div *ngFor="let a of lists" (click)="getTasks(a)" (click)="getList(a)">{{a.id}}-{{a.name}}</div>
     </div>
 </ng-container>
+    <BR/>
+PRODUCTS
+    <div>
+        <div *ngFor="let t of tasks">{{t.id}} - {{t.name}} - {{t.due_on}} - {{t.status}}</div>
+    </div>
+    <BR/>
+LIST INFO
+<BR/>
+    <div>
+        <h2>{{list1}}</h2>
+    </div>
