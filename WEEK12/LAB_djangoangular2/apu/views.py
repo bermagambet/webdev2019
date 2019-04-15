@@ -7,7 +7,7 @@ from apu.models import Task
 def TaskLists(request):
     taskLists = TaskList.objects.all()
     taskListsJson = [c.json() for c in taskLists]
-    return JsonResponse(taskListsJson   q2, safe=False)
+    return JsonResponse(taskListsJson, safe=False)
 
 
 def Tasks(request, xd):
