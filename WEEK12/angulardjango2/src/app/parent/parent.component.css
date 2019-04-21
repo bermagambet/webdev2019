@@ -37,3 +37,8 @@ header{
     background: blueviolet;  
     backface-visibility: visible;
   }
+
+  .xdlists {
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }

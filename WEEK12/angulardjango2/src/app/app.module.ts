@@ -9,6 +9,7 @@ import { ProviderService } from './shared/services/provider.service';
 import { OtherComponent } from './other/other.component';
 import { MainService } from './shared/services/main.service';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     ProviderService,

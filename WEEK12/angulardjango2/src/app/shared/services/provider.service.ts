@@ -28,4 +28,20 @@ export class ProviderService extends MainService{
     return this.get('http://localhost:8000/tasklist/' + list.id + '/info', {})
    }
 
+   createList(name:any): Promise<IList>{
+    return this.post('http://localhost:8000/tasklist', {
+      name: name
+    });
+   }
+
+   updateList(list: IList): Promise<IList>{
+     return this.put('http://localhost:8000/tasklist/' + list.id + '/info'  , {
+       name: list.name
+     })
+   }
+
+   deleteList(id: number): Promise<any>{
+     return this.delet('http://localhost:8000/tasklist/' + id + '/info', {});
+   }
+
 }

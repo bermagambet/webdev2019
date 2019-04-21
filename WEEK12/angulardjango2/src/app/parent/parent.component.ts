@@ -19,6 +19,9 @@ export class ParentComponent implements OnInit {
   public tasks: ITask[] = [];
 
   public list1 = '';
+
+  public name: any = '';
+
     constructor(private provider: ProviderService) { }
 
   ngOnInit() {
@@ -42,5 +45,29 @@ export class ParentComponent implements OnInit {
 
   sendMessageViaService(){    
     this.provider.sendMessage.emit('smth');
+  }
+
+  updateTaskList(c: IList){
+    this.provider.updateList(c).then(res=>{
+      console.log(c.name + ' updated');
+    });
+  }
+
+  deleteList(c: IList ){
+    this.provider.deleteList(c.id).then(res=>{
+      console.log(c.name + ' deleted');
+      this.provider.getLists().then(r=>{
+        this.lists = r;
+      });
+    });
+  }
+
+  createList(){
+    if(this.name != '') {
+      this.provider.createList(this.name).then(res=>{
+        this.name = '';
+        this.lists.push(res);
+      });
+    }
   }
 }
