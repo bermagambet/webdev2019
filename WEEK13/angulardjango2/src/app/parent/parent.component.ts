@@ -22,13 +22,22 @@ export class ParentComponent implements OnInit {
 
   public name: any = '';
 
+  public logged = false;
+
+  public login: any = '';
+
+  public password: any = '';
+
     constructor(private provider: ProviderService) { }
 
   ngOnInit() {
+    if(this.logged){
+
     this.provider.getLists().then(res => {
       this.lists = res;
     this.loading = true;
     });
+  }
   }
 
   getTasks(list: IList){
@@ -70,4 +79,22 @@ export class ParentComponent implements OnInit {
       });
     }
   }
+
+  auth(){
+    if (this.login != '' && this.password != '') {
+      this.provider.auth(this.login, this.password).then(res=>{
+        localStorage.setItem('token', res.token);
+        this.logged = true;
+        this.getLists();
+      });
+    }
+  }
+  getLists() {
+    this.provider.getLists().then(res => {
+      this.lists = res;
+      this.loading = true;
+    });
+  }
+
+
 }

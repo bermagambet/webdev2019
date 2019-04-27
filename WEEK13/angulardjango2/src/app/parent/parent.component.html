@@ -24,8 +24,23 @@ SEND VIA SERVICE
 <header>
     <h1>ToDo LIST</h1>
 </header>
+<ng-container *ngIf="!logged">
+<div class="bodyall0">
+        <div>
+            <input type='text' [(ngModel)]="login">
+        </div>
+        <div>
+            <input type='text' [(ngModel)]="password">
+        </div>
+        <div>
+            <button (click)="auth()">Log In</button>
+        </div>
+    </div>
+</ng-container>
+<ng-container *ngIf="logged">
 <div class="bodyall">
 <content>
+
     <div>
         <input type="text" [(ngModel)]="name" >
         <button (click)="createList()">Create</button>
@@ -64,3 +79,4 @@ SEND VIA SERVICE
     </div>
 </content>
 </div>
+</ng-container>

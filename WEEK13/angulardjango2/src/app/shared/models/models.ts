@@ -15,3 +15,7 @@ export interface IListInfo {
     id: number;
     toString: string;
 }
+
+export interface IAuth {
+    token: string;
+}
