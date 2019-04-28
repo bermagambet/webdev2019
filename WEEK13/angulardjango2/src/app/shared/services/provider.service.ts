@@ -17,7 +17,7 @@ export class ProviderService extends MainService{
    }
 
    getLists(): Promise<IList[]>{
-     return this.get('http://localhost:8000/tasklist', {});
+     return this.get('http://localhost:8000/tasklist/', {});
    }
 
    getTasks(list: IList): Promise<ITask[]>{
@@ -29,7 +29,7 @@ export class ProviderService extends MainService{
    }
 
    createList(name:any): Promise<IList>{
-    return this.post('http://localhost:8000/tasklist', {
+    return this.post('http://localhost:8000/tasklist/', {
       name: name
     });
    }
