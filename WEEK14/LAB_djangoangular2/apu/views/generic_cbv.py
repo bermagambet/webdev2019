@@ -31,13 +31,13 @@ from rest_framework import filters
 from rest_framework.pagination import PageNumberPagination, LimitOffsetPagination
 
 from apu.models import TaskList, Task
-from apu.serializers import TaskListSerializer2, TaskSerializer
+from apu.serializers import CategorySerializer2, ProductSerializer
 
 from apu.filters import ProductFilter
 
 
 class CategoryList(generics.ListCreateAPIView):
-    serializer_class = TaskListSerializer2
+    serializer_class = CategorySerializer2
     permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
@@ -49,11 +49,11 @@ class CategoryList(generics.ListCreateAPIView):
 
 class CategoryDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = TaskList.objects.all()
-    serializer_class = TaskListSerializer2
+    serializer_class = CategorySerializer2
 
 
 class CategoryProductList(generics.ListCreateAPIView):
-    serializer_class = TaskSerializer
+    serializer_class = ProductSerializer
     pagination_class = LimitOffsetPagination
     filter_backends = (DjangoFilterBackend,
                        filters.SearchFilter,
@@ -65,7 +65,7 @@ class CategoryProductList(generics.ListCreateAPIView):
 
     ordering_fields = ('name',)
 
-    ordering = ('price',)
+    ordering = ('name',)
 
     def get_queryset(self):
         try:
