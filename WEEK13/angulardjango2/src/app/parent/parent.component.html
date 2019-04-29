@@ -27,12 +27,12 @@ SEND VIA SERVICE
 <ng-container *ngIf="!logged">
 <div class="bodyall0">
         <div>
-            <input type='text' [(ngModel)]="login">
+            <input type='text' [(ngModel)]="login" id="login">
         </div>
         <div>
-            <input type='text' [(ngModel)]="password">
+            <input type='text' [(ngModel)]="password" id="pw">
         </div>
-        <div>
+        <div id="btn">
             <button (click)="auth()">Log In</button>
         </div>
     </div>

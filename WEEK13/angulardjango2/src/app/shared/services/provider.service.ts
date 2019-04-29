@@ -40,8 +40,8 @@ export class ProviderService extends MainService{
      })
    }
 
-   deleteList(id: number): Promise<any>{
-     return this.delet('http://localhost:8000/tasklist/' + id + '/info', {});
+   deleteList(xd: number): Promise<any>{
+     return this.delet('http://localhost:8000/tasklist/' + xd + '/info', {});
    }
 
    auth(login: any, password: string): Promise<IAuth> {

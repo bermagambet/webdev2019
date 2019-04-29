@@ -18,5 +18,6 @@ class TaskListList(generics.ListCreateAPIView):
 
 class TaskListInfo(generics.RetrieveUpdateDestroyAPIView):
     queryset = TaskList.objects.all()
+    lookup_field = 'pk'
     serializer_class = TaskListSerializer2
 
