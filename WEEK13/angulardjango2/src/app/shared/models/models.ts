@@ -1,6 +1,7 @@
 export interface IList {
     id: number;
     name: string;
+    tasks: ITask[];
 }
 
 export interface ITask {
@@ -8,6 +9,7 @@ export interface ITask {
     name: string;
     due_on: string;
     status: string;
+    task_list: number;
 }
 
 

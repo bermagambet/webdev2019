@@ -37,20 +37,27 @@ class ProductSerializer(serializers.ModelSerializer):
 
 class ProductSerializer2(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
+    name = serializers.CharField(required=True)
+    due_on = serializers.CharField(required=True)
+    status = serializers.CharField(required=True)
+
 
     class Meta:
         model = Task
         fields = ('id', 'name', 'due_on', 'status', 'task_list')
 
+    # def create(self, validated_data):
+    #     tasks = validated_data.pop('task_list')
+    #     xd = TaskList.objects.get(id=tasks)
+    #     task1 = TaskList.objects.create(validated_data.pop('name'), xd)
+    #     return task1
+
 
 class CategorySerializer2(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
-    name = serializers.CharField()
+    name = serializers.CharField(required=True)
     created_by = UserSerializer(read_only=True)
     tasks = ProductSerializer2(many=True)
-
-    # products = serializers.StringRelatedField(many=True)
-    # products = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
 
     class Meta:
         model = TaskList
@@ -61,12 +68,9 @@ class CategorySerializer2(serializers.ModelSerializer):
         task1 = TaskList.objects.create(**validated_data)
         for task in tasks:
             Task.objects.create(category=task1, **task)
+        return task1
 
-        # arr = [Product(category=category, **product) for product in products]
-        # Product.objects.bulk_create(arr)
-
-        # for i in range(0, len(arr), 100):
-        #     # 0 100 200 300 400
-        #     Product.objects.bulk_create(arr[i:i+100])
-
-        return category
+    def update(self, instance, validated_data):
+        instance.name = validated_data.get('name', instance.name)
+        instance.save()
+        return instance

@@ -42,8 +42,26 @@ SEND VIA SERVICE
 <content>
 
     <div>
-        <input type="text" [(ngModel)]="name" >
+        <a>Create Task List</a>
+        <br>
+        <a>Tasklist name</a><input type="text" [(ngModel)]="name" >
+        <br>
         <button (click)="createList()">Create</button>
+        <br>
+        <a>Create Task</a>
+        <br>
+        <div *ngIf="creatable">
+        <br>
+                    <a>Task name</a><input type="text" [(ngModel)]="name1" >
+                    <br>
+                    <a>Task due_on</a><input type="text" [(ngModel)]="due_on" >
+                    <br>
+                    <a>Task status</a><input type="text" [(ngModel)]="status" >
+                    <br>
+                    <a>Task ListID</a><input type="text" [(ngModel)]="tasklist_id" >
+        <br>
+                    <button (click)="createTask(name1, due_on, status, tasklist_id)">Create</button>
+        </div>
     </div>
 
 
@@ -56,22 +74,65 @@ SEND VIA SERVICE
     <div class="cont">
         <ng-container *ngIf="loading">
             <div>
+                <span>
+            <input type="text" placeholder="Search by field" (click)="makeSearch()"[(ngModel)]="orderchterlists">
+        </span>
+        <span (click)="getLists()">
+          <button>Search</button>
+        </span>
+        <br/>
+        <span (click)="makeOrder()" (click)="getLists()">
+          <button>Order</button>
+        </span>
+        <br/>
+        <span>
+          <input type="text" placeholder="Filter by name or id" (click)="makeFilter()" [(ngModel)]="orderchterlistf">
+        </span> 
+        <span (click)="getLists()">
+          <button>Filter</button>
+        </span>
                 <div *ngFor="let c of lists">
                     <span (click)="getTasks(c)" (click)="getList(c)">
                         <input type="text" [(ngModel)]="c.name" class="xdlists">
                     </span>
                     <span style="color:red" (click)="deleteList(c)">    Delete </span>
                     <span style="color:green" (click)="updateTaskList(c)"> Update</span>
+                    
                 </div>
             </div>
         </ng-container>
     </div>
     <br/>
     <h2>Tasks:</h2>
+    <span>
+            <input type="text" placeholder="Search by field" (click)="maketSearch()"[(ngModel)]="orderchtertasks">
+        </span>
+        <span (click)="getTasks(list)">
+          <button>Search</button>
+        </span>
+        <br/>
+        <span (click)="maketOrder(list)" (click)="getTasks(list)">
+          <button>Order</button>
+        </span>
+        <br/>
+        <span>
+          <input type="text" placeholder="Filter by name or id" (click)="maketFilter()" [(ngModel)]="orderchtertaskf">
+        </span> 
+        <span (click)="getTasks(list)">
+          <button>Filter</button>
+        </span>
     <div>
-        <div *ngFor="let t of tasks">{{t.id}} - {{t.name}} - {{t.due_on}} - {{t.status}}</div>
-    </div>
+        <div *ngFor="let t of tasks">
     <BR/>
+    <div>
+        <input type="text" [(ngModel)]="t.name" >
+        <input type="text" [(ngModel)]="t.due_on" >
+        <input type="text" [(ngModel)]="t.status" >
+        <input type="text" [(ngModel)]="tasklist_id" >
+        <button (click)="updateTask(t)">Update</button>
+    </div>
+</div>
+</div>
     <h2>List's Info</h2>
     <BR/>
     <div>
